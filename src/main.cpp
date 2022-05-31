@@ -1,5 +1,7 @@
 #include <Arduino.h>
-//#include <Plotter.h>
+#include <SerialToPlot.h>
+
+SerialToPlot<int> p;
 
 // Number of columns and Rows of the system
 int num_columns = 1; //3
@@ -70,6 +72,9 @@ void setup() {
   //digitalWrite(SIG_pin_2, HIGH);
 
 
+	p = SerialToPlot<int>(9600);
+	String datasets[] = {"s1", "s2"}; // Array with labels
+	p.addDatasets(datasets, 2); // We have 2 datasets
   Serial.begin(9600);
 }
 
@@ -116,7 +121,11 @@ void loop(){
         Serial.print("\n");
 
         Serial.print("------\n"); 
-        delay(1000);   
+        delay(5000);   
+
+        	p = SerialToPlot<int>(9600);
+	        String datasets[] = {"s1", "s2"}; // Array with labels
+	        p.addDatasets(datasets, 2); // We have 2 datasets
       }
     }
   }
