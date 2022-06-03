@@ -4,8 +4,8 @@
 SerialToPlot<int> p;
 
 // Number of columns and Rows of the system
-int num_columns = 1; //3
-int num_rows = 1; //4
+int num_columns = 2; //3
+int num_rows = 2; //4
 int vin = 5;
 float R1[3] = {1000000, 10000, 1000};
 
